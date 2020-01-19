@@ -15,8 +15,12 @@
 			<pubDate>Mon, 20 Jan 2020 03:11:20 +0900</pubDate>
 			
 			<guid>https://mijinko17.github.io/hoge/posts/first_post/</guid>
-			<description></description>
-			<content type="html"><![CDATA[]]></content>
+			<description>test  hogehoge  </description>
+			<content type="html"><![CDATA[<h1 id="test">test</h1>
+<ul>
+<li>hogehoge</li>
+</ul>
+]]></content>
 		</item>
 		
 	</channel>
