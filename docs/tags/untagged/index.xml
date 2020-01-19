@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>untagged on biotope monologue</title>
+    <link>https://mijinko17.github.io/hoge/tags/untagged/</link>
+    <description>Recent content in untagged on biotope monologue</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <lastBuildDate>Mon, 20 Jan 2020 03:11:20 +0900</lastBuildDate>
+    
+	<atom:link href="https://mijinko17.github.io/hoge/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First_post</title>
+      <link>https://mijinko17.github.io/hoge/posts/first_post/</link>
+      <pubDate>Mon, 20 Jan 2020 03:11:20 +0900</pubDate>
+      
+      <guid>https://mijinko17.github.io/hoge/posts/first_post/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
