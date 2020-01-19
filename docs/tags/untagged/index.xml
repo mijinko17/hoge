@@ -13,12 +13,18 @@
     
     
     <item>
-      <title>First_post</title>
+      <title>Hello, World!</title>
       <link>https://mijinko17.github.io/hoge/posts/first_post/</link>
       <pubDate>Mon, 20 Jan 2020 03:11:20 +0900</pubDate>
       
       <guid>https://mijinko17.github.io/hoge/posts/first_post/</guid>
-      <description>test  hogehoge  </description>
+      <description>このサイトについて   このサイトは mijinko(twitter, atcoder)によって主に競技プログラミング関係の記事を投稿するために作られました。
+  コンテスト後によく自分の解法をまとめたツイートをするのですが、この前コンテストに参加できなかった時に他の方の解法ツイートがとても目障りに感じました。コンテスト後の感想戦(?)も競プロの醍醐味ではあるのですが、競プロの性質上問題のネタバレはコンテスト後も極力避けるべきです。今後は自分の解法はここに書くつもりです。
+  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、google で調べると「github pages のリポジトリは公開用とソースコード用で二つ用意する」という記述が多く見られますが、この記事を書いている現在以下のように設定することで 1 つのリポジトリで完結させることができます。
+ github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&amp;quot;docs&amp;quot;を追加する。これによって build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
+ 無料アカウントの場合、github pages に使うリポジトリは public である必要があります。 以前は使うリポジトリの名前が固定されていたようですが、現在はどのリポジトリでも pages を使うことができます。    markdown の書き方が分からなすぎて辛いです。今日は結局リンクを別のタブで開くようにできませんでした。あと tex の表示もできるようにしたいですね。
+  このページテーマは Hermit と言って、スタイリッシュで気に入っているのですが、ページの遷移が悪い感があります。一つの記事から他のページへの移動がとても面倒です(一度記事一覧に戻る必要があります)。テーマは気軽に変えられそうなのでもう少し使い勝手のいいものを探していきます。
+  </description>
     </item>
     
   </channel>
