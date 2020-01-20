@@ -18,9 +18,9 @@ publishDir="docs"
   name = "mijinko"
 
 [blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
+hrefTargetBlank = true
+  noreferrerLinks = true
+  nofollowLinks = true
 
 [taxonomies]
   tag = "tags"
@@ -66,7 +66,7 @@ publishDir="docs"
 
   [[params.social]]
     name = "github"
-    url = "https://github.com/"
+    url = "https://twitter.com/mijinko_cpp"
 
 [menu]
 
@@ -75,7 +75,7 @@ publishDir="docs"
     url = "posts/"
     weight = 10
 
-  [[menu.main]]
-    name = "About"
-    url = "about-hugo/"
-    weight = 20
+  # [[menu.main]]
+  #   name = "About"
+  #   url = "about-hugo/"
+  #   weight = 20

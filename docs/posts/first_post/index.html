@@ -10,8 +10,8 @@
 <meta itemprop="name" content="Hello, World!">
 <meta itemprop="description" content="このサイトについて   このサイトは mijinko(twitter, atcoder)によって主に競技プログラミング関係の記事を投稿するために作られました。
   コンテスト後によく自分の解法をまとめたツイートをするのですが、この前コンテストに参加できなかった時に他の方の解法ツイートがとても目障りに感じました。コンテスト後の感想戦(?)も競プロの醍醐味ではあるのですが、競プロの性質上問題のネタバレはコンテスト後も極力避けるべきです。今後は自分の解法はここに書くつもりです。
-  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、google で調べると「github pages のリポジトリは公開用とソースコード用で二つ用意する」という記述が多く見られますが、この記事を書いている現在以下のように設定することで 1 つのリポジトリで完結させることができます。
- github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これによって build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
+  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、以前は github pages のリポジトリは公開用とソースコード用で二つ用意したりブランチを不自然に切ったりする必要があったようですが、この記事を書いている現在が以下のように設定することで 1 つのリポジトリで綺麗に完結させることができます。
+ github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これにより build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
  無料アカウントの場合、github pages に使うリポジトリは public である必要があります。 以前は使うリポジトリの名前が固定されていたようですが、現在はどのリポジトリでも pages を使うことができます。    markdown の書き方が分からなすぎて辛いです。今日は結局リンクを別のタブで開くようにできませんでした。あと tex の表示もできるようにしたいですね。
   このページテーマは Hermit と言って、スタイリッシュで気に入っているのですが、ページの遷移が悪い感があります。一つの記事から他のページへの移動がとても面倒です(一度記事一覧に戻る必要があります)。テーマは気軽に変えられそうなのでもう少し使い勝手のいいものを探していきます。
   ">
@@ -24,8 +24,8 @@
 <meta itemprop="keywords" content="untagged," /><meta property="og:title" content="Hello, World!" />
 <meta property="og:description" content="このサイトについて   このサイトは mijinko(twitter, atcoder)によって主に競技プログラミング関係の記事を投稿するために作られました。
   コンテスト後によく自分の解法をまとめたツイートをするのですが、この前コンテストに参加できなかった時に他の方の解法ツイートがとても目障りに感じました。コンテスト後の感想戦(?)も競プロの醍醐味ではあるのですが、競プロの性質上問題のネタバレはコンテスト後も極力避けるべきです。今後は自分の解法はここに書くつもりです。
-  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、google で調べると「github pages のリポジトリは公開用とソースコード用で二つ用意する」という記述が多く見られますが、この記事を書いている現在以下のように設定することで 1 つのリポジトリで完結させることができます。
- github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これによって build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
+  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、以前は github pages のリポジトリは公開用とソースコード用で二つ用意したりブランチを不自然に切ったりする必要があったようですが、この記事を書いている現在が以下のように設定することで 1 つのリポジトリで綺麗に完結させることができます。
+ github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これにより build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
  無料アカウントの場合、github pages に使うリポジトリは public である必要があります。 以前は使うリポジトリの名前が固定されていたようですが、現在はどのリポジトリでも pages を使うことができます。    markdown の書き方が分からなすぎて辛いです。今日は結局リンクを別のタブで開くようにできませんでした。あと tex の表示もできるようにしたいですね。
   このページテーマは Hermit と言って、スタイリッシュで気に入っているのですが、ページの遷移が悪い感があります。一つの記事から他のページへの移動がとても面倒です(一度記事一覧に戻る必要があります)。テーマは気軽に変えられそうなのでもう少し使い勝手のいいものを探していきます。
   " />
@@ -37,8 +37,8 @@
 <meta name="twitter:title" content="Hello, World!"/>
 <meta name="twitter:description" content="このサイトについて   このサイトは mijinko(twitter, atcoder)によって主に競技プログラミング関係の記事を投稿するために作られました。
   コンテスト後によく自分の解法をまとめたツイートをするのですが、この前コンテストに参加できなかった時に他の方の解法ツイートがとても目障りに感じました。コンテスト後の感想戦(?)も競プロの醍醐味ではあるのですが、競プロの性質上問題のネタバレはコンテスト後も極力避けるべきです。今後は自分の解法はここに書くつもりです。
-  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、google で調べると「github pages のリポジトリは公開用とソースコード用で二つ用意する」という記述が多く見られますが、この記事を書いている現在以下のように設定することで 1 つのリポジトリで完結させることができます。
- github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これによって build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
+  ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、以前は github pages のリポジトリは公開用とソースコード用で二つ用意したりブランチを不自然に切ったりする必要があったようですが、この記事を書いている現在が以下のように設定することで 1 つのリポジトリで綺麗に完結させることができます。
+ github pages の source を master の docs/に指定する。 ./config.toml にpublishDir=&quot;docs&quot;を追加する。これにより build 後の生成ファイルが docs/に出力されるようになる。  あと自分がサイトを作る時に悩んだことを書き残しておきます。
  無料アカウントの場合、github pages に使うリポジトリは public である必要があります。 以前は使うリポジトリの名前が固定されていたようですが、現在はどのリポジトリでも pages を使うことができます。    markdown の書き方が分からなすぎて辛いです。今日は結局リンクを別のタブで開くようにできませんでした。あと tex の表示もできるようにしたいですね。
   このページテーマは Hermit と言って、スタイリッシュで気に入っているのですが、ページの遷移が悪い感があります。一つの記事から他のページへの移動がとても面倒です(一度記事一覧に戻る必要があります)。テーマは気軽に変えられそうなのでもう少し使い勝手のいいものを探していきます。
   "/>
@@ -97,10 +97,10 @@
 <p>コンテスト後によく自分の解法をまとめたツイートをするのですが、この前コンテストに参加できなかった時に他の方の解法ツイートがとても目障りに感じました。コンテスト後の感想戦(?)も競プロの醍醐味ではあるのですが、競プロの性質上問題のネタバレはコンテスト後も極力避けるべきです。今後は自分の解法はここに書くつもりです。</p>
 </li>
 <li>
-<p>ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、google で調べると「github pages のリポジトリは公開用とソースコード用で二つ用意する」という記述が多く見られますが、この記事を書いている現在以下のように設定することで 1 つのリポジトリで完結させることができます。</p>
+<p>ページレイアウトは hugo のテンプレートを使って作成し、それを github pages で公開しています。テキストベースのものは極力 github で管理したい思いがあり、それを実現するには github pages が最適だという判断です。ちなみに、以前は github pages のリポジトリは公開用とソースコード用で二つ用意したりブランチを不自然に切ったりする必要があったようですが、この記事を書いている現在が以下のように設定することで 1 つのリポジトリで綺麗に完結させることができます。</p>
 <ul>
 <li>github pages の source を master の docs/に指定する。</li>
-<li>./config.toml に<code>publishDir=&quot;docs&quot;</code>を追加する。これによって build 後の生成ファイルが docs/に出力されるようになる。</li>
+<li>./config.toml に<code>publishDir=&quot;docs&quot;</code>を追加する。これにより build 後の生成ファイルが docs/に出力されるようになる。</li>
 </ul>
 <p>あと自分がサイトを作る時に悩んだことを書き残しておきます。</p>
 <ul>
@@ -127,17 +127,20 @@
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://mijinko17.github.io/hoge/posts/abc152/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>ABC152</span>
+			</a>
 		</div>
 		<div id="comments" class="thin">
 </div>
 	</main>
 
-	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2020 <a href="https://mijinko17.github.io/hoge/">mijinko</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
-		<p>
-			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://mijinko17.github.io/hoge/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
-		</p>
-	</footer>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
 

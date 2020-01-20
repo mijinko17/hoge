@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="ABC152">
+<meta itemprop="description" content="94 分 A~E の 5 完でした。
+D に 50 分くらい吸われて死にかけましたが何とか E まで解けました。毎度 C、D あたりで引っかかってる気がします。
+問題:https://atcoder.jp/contests/abc152/tasks
+成績:https://atcoder.jp/users/mijinko/history/share/abc152
+A N==Mかを判定すればいいです。
+B  string(n,c)で char c を n 個くっつけたものを生成できるので文字列の生成はすぐです。 string に対して不等号を使えば辞書順の判定はできるのでこれで終わりです。  C  「前にある数が全て自分より大きい」ような数の個数を数えればいいです。 これは「前にある数の最小値が自分より大きい」ような数と言い換えられます。 先頭から順に見ていく場合、前にある数の集合は 1 つずつ増えていきます。これに合わせて min を更新していけばいいです。  D  「n 以下の整数で〜」かつ桁に関する情報と来たら桁 dp。当然ですね。 桁 dp あんま書いたことなくて何も分からない…… 桁 dp でググったりしたけど結局どう dp をするのか分からないまま時間が流れます。 とりあえず問題文を読んで求めたいものを整理します。先頭が i、最後尾が j なる数の総数が分かれば良さそうです。これをcount[i][j]という形で持つことにします。 各(i,j)について高速に count を計算できそうです。i が n の最高位より小さかったら〜、等しい時は j が n の一の位より大きかったら〜…… そんな複雑なコードでバグらないわけがありません(破滅)。この時点で 50 分が経過し 3 完を覚悟します。 ここで 1〜n まで全部見て count を完成させる方法が降って来ます。危なかった。整数 k の最高位と最下位はs=to_string(k)としてs[0]、s.">
+<meta itemprop="datePublished" content="2020-01-20T06:55:14&#43;09:00" />
+<meta itemprop="dateModified" content="2020-01-20T06:55:14&#43;09:00" />
+<meta itemprop="wordCount" content="125">
+
+
+
+<meta itemprop="keywords" content="untagged," /><meta property="og:title" content="ABC152" />
+<meta property="og:description" content="94 分 A~E の 5 完でした。
+D に 50 分くらい吸われて死にかけましたが何とか E まで解けました。毎度 C、D あたりで引っかかってる気がします。
+問題:https://atcoder.jp/contests/abc152/tasks
+成績:https://atcoder.jp/users/mijinko/history/share/abc152
+A N==Mかを判定すればいいです。
+B  string(n,c)で char c を n 個くっつけたものを生成できるので文字列の生成はすぐです。 string に対して不等号を使えば辞書順の判定はできるのでこれで終わりです。  C  「前にある数が全て自分より大きい」ような数の個数を数えればいいです。 これは「前にある数の最小値が自分より大きい」ような数と言い換えられます。 先頭から順に見ていく場合、前にある数の集合は 1 つずつ増えていきます。これに合わせて min を更新していけばいいです。  D  「n 以下の整数で〜」かつ桁に関する情報と来たら桁 dp。当然ですね。 桁 dp あんま書いたことなくて何も分からない…… 桁 dp でググったりしたけど結局どう dp をするのか分からないまま時間が流れます。 とりあえず問題文を読んで求めたいものを整理します。先頭が i、最後尾が j なる数の総数が分かれば良さそうです。これをcount[i][j]という形で持つことにします。 各(i,j)について高速に count を計算できそうです。i が n の最高位より小さかったら〜、等しい時は j が n の一の位より大きかったら〜…… そんな複雑なコードでバグらないわけがありません(破滅)。この時点で 50 分が経過し 3 完を覚悟します。 ここで 1〜n まで全部見て count を完成させる方法が降って来ます。危なかった。整数 k の最高位と最下位はs=to_string(k)としてs[0]、s." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mijinko17.github.io/hoge/posts/abc152/" />
+<meta property="article:published_time" content="2020-01-20T06:55:14+09:00" />
+<meta property="article:modified_time" content="2020-01-20T06:55:14+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ABC152"/>
+<meta name="twitter:description" content="94 分 A~E の 5 完でした。
+D に 50 分くらい吸われて死にかけましたが何とか E まで解けました。毎度 C、D あたりで引っかかってる気がします。
+問題:https://atcoder.jp/contests/abc152/tasks
+成績:https://atcoder.jp/users/mijinko/history/share/abc152
+A N==Mかを判定すればいいです。
+B  string(n,c)で char c を n 個くっつけたものを生成できるので文字列の生成はすぐです。 string に対して不等号を使えば辞書順の判定はできるのでこれで終わりです。  C  「前にある数が全て自分より大きい」ような数の個数を数えればいいです。 これは「前にある数の最小値が自分より大きい」ような数と言い換えられます。 先頭から順に見ていく場合、前にある数の集合は 1 つずつ増えていきます。これに合わせて min を更新していけばいいです。  D  「n 以下の整数で〜」かつ桁に関する情報と来たら桁 dp。当然ですね。 桁 dp あんま書いたことなくて何も分からない…… 桁 dp でググったりしたけど結局どう dp をするのか分からないまま時間が流れます。 とりあえず問題文を読んで求めたいものを整理します。先頭が i、最後尾が j なる数の総数が分かれば良さそうです。これをcount[i][j]という形で持つことにします。 各(i,j)について高速に count を計算できそうです。i が n の最高位より小さかったら〜、等しい時は j が n の一の位より大きかったら〜…… そんな複雑なコードでバグらないわけがありません(破滅)。この時点で 50 分が経過し 3 完を覚悟します。 ここで 1〜n まで全部見て count を完成させる方法が降って来ます。危なかった。整数 k の最高位と最下位はs=to_string(k)としてs[0]、s."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/hoge/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/hoge/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/hoge/favicon-16x16.png">
+	<link rel="manifest" href="/hoge/site.webmanifest">
+	<link rel="mask-icon" href="/hoge/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/hoge/favicon.ico">
+
+	<title>ABC152</title>
+	<link rel="stylesheet" href="https://mijinko17.github.io/hoge/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://mijinko17.github.io/hoge/">biotope monologue</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://mijinko17.github.io/hoge/posts/">Posts</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://twitter.com/mijinko_cpp" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://mijinko17.github.io/hoge/posts/">Posts</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 20, 2020</span></div>
+				<h1>ABC152</h1>
+			</header>
+			<div class="content">
+				<p>94 分 A~E の 5 完でした。</p>
+<p>D に 50 分くらい吸われて死にかけましたが何とか E まで解けました。毎度 C、D あたりで引っかかってる気がします。</p>
+<p>問題:<a href="https://atcoder.jp/contests/abc152/tasks">https://atcoder.jp/contests/abc152/tasks</a></p>
+<p>成績:<a href="https://atcoder.jp/users/mijinko/history/share/abc152">https://atcoder.jp/users/mijinko/history/share/abc152</a></p>
+<h1 id="a">A<a href="#a" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p><code>N==M</code>かを判定すればいいです。</p>
+<h1 id="b">B<a href="#b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<ol>
+<li><code>string(n,c)</code>で char c を n 個くっつけたものを生成できるので文字列の生成はすぐです。</li>
+<li>string に対して不等号を使えば辞書順の判定はできるのでこれで終わりです。</li>
+</ol>
+<h1 id="c">C<a href="#c" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<ol>
+<li>「前にある数が全て自分より大きい」ような数の個数を数えればいいです。</li>
+<li>これは「前にある数の最小値が自分より大きい」ような数と言い換えられます。</li>
+<li>先頭から順に見ていく場合、前にある数の集合は 1 つずつ増えていきます。これに合わせて min を更新していけばいいです。</li>
+</ol>
+<h1 id="d">D<a href="#d" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<ol>
+<li>「n 以下の整数で〜」かつ桁に関する情報と来たら桁 dp。当然ですね。</li>
+<li>桁 dp あんま書いたことなくて何も分からない…… 桁 dp でググったりしたけど結局どう dp をするのか分からないまま時間が流れます。</li>
+<li>とりあえず問題文を読んで求めたいものを整理します。先頭が i、最後尾が j なる数の総数が分かれば良さそうです。これを<code>count[i][j]</code>という形で持つことにします。</li>
+<li>各(i,j)について高速に count を計算できそうです。i が n の最高位より小さかったら〜、等しい時は j が n の一の位より大きかったら〜……</li>
+<li>そんな複雑なコードでバグらないわけがありません(破滅)。この時点で 50 分が経過し 3 完を覚悟します。</li>
+<li>ここで 1〜n まで全部見て count を完成させる方法が降って来ます。危なかった。整数 k の最高位と最下位は<code>s=to_string(k)</code>として<code>s[0]</code>、<code>s.back()</code>で取得します。</li>
+</ol>
+<p>何を求められると良いか落ち着いて整理したおかげで辛うじて軌道修正できました。</p>
+<p>今思えば<a href="https://atcoder.jp/contests/abc136/tasks/abc136_b">この問題</a>とやることはほぼ同じですね……以前これに殺されかけたのに何故……</p>
+<h1 id="e">E<a href="#e" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<ol>
+<li>$n \leq 10^4$ の制約がとても不吉。$O(n^2)$ がギリギリ間に合うくらいです。</li>
+<li>問題文をよく読むと$\{A_i\}$の lcm を求めろと書いてあります。なのでとりあえず lcm を計算する方法を考えます。</li>
+<li>lcm の最も素直な計算方法は<code>lcm(a,b)=a/gcd(a,b)*b</code>を用いて前から計算していく方法ですが、今回の制約下では明らかに途中でオーバーフローします。今回は$\bmod\ 10^9+7$で答えればいいので途中で余りを取りながら計算して上手くいけばいいのですが、lcm の計算で本当にそんなことをしていいのでしょうか……。「最小公倍数　余り　競プロ」などで調べますがあまりいい情報は得られません。</li>
+<li>詰みが見えてきたので実は F の方が簡単説に懸けて順位表を見にいきます。しかし F の正解者数はそこまで多くない一方で E が 700 人近くに解かれていて絶望します。これそんな簡単か……？</li>
+<li>700 人も解いてるわけだし実は 3 の方針でいいんじゃないか？という気がしてきてとりあえず実装してみます。しかし当然ダメ……入力例 3 で合いません。終わりです。</li>
+<li>実は k を決め打ったりすると良かったりしないか考えます。k を決めた時にそれが&quot;公倍数&quot;であることがそこそこの時間で判定できて、また何らかの単調性があれば二分探索で勝ちです。しかしやはり余りを取る操作と倍数という性質の相性が悪すぎてうまくいきません。</li>
+<li>ここで突然 lcm を素因数分解の形で保持せよとの天啓が降って来ます(本当はこういう部分をしっかり書くべきなのに何故……)。必要なものは lcm を求めるための素因数分解、素因数分解から数を復元するための累乗、$B_i$を求めるための mod 逆元ですが、これらは幸い全てライブラリにあります。ライブラリに感謝。残り 6 分くらいに提出して何とか滑り込みます。</li>
+</ol>
+<p>通常の lcm の計算がダメだと気付いた時に別の計算方法がないかすぐに考えるべきでした。</p>
+<h1 id="f">F<a href="#f" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<p>時間がありません。</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://mijinko17.github.io/hoge/tags/untagged">untagged</a></span>
+				</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-01-20 06:55 &#43;0900</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://mijinko17.github.io/hoge/posts/first_post/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Hello, World!</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+	<script src="https://mijinko17.github.io/hoge/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
