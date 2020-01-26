@@ -5,7 +5,7 @@
     <link>https://mijinko17.github.io/hoge/</link>
     <description>Recent content on biotope monologue</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja</language>
+    <language>jp</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sun, 26 Jan 2020 22:13:03 +0900</lastBuildDate>
     
@@ -19,13 +19,23 @@
       
       <guid>https://mijinko17.github.io/hoge/posts/abc153/</guid>
       <description>ペナ込み 74 分全完でした。 どう見ても典型の E で時間溶かしたの良くなかった……
-問題: https://atcoder.jp/contests/abc153/tasks
-A 繰り上げの割り算でスッキリ書きます。
+問題: atcoder.jp/contests/abc153/tasks
+成績: atcoder.jp/users/mijinko/history/share/abc153
+Summary A 繰り上げの割り算でスッキリ書きます。
 B 必殺技全部使って倒せれば十分。
 C 強いモンスターを必殺技で殴って残ったやつを攻撃。
 D $f(n):=$(体力$n$のやつを倒すための攻撃数)を dfs
-E 体力を頂点とするグラフを作ってダイクストラで撲殺。そんなことせずともナップザックすればいいっぽいのだが何回でも同じ魔法を使えるところで頭がいかれてしまった。
-F 生き残ってる最も左のモンスターを擦るように攻撃するのが最適。使った爆弾がどこまで影響するかをいもす法的に管理して左から見る。</description>
+E ダメージ合計を頂点とするグラフを作ってダイクストラで撲殺。そんなことせずともナップザックすればいいっぽいのだが何回でも同じ魔法を使えるところで頭がいかれてしまった。
+F 生き残ってる最も左のモンスターを擦るように攻撃するのが最適。使った爆弾がどこまで影響するかをいもす法的に管理して左から見る。
+ Details E 考えたのは
+ ナップザック グラフを作ってダイクストラ  です。
+問題文からしてナップザックを考えるのは当然なのですが、同じ魔法を何度も使える点が The ナップザック的な問題と少し違います。問題が簡単なのは気づきましたがそのせいで焦ってしまい冷静な思考を失ってしまいました。
+たまたまこの手の問題をダイクストラで殴り殺した経験があり、その方向で考え直したらうまくいきました。
+ダイクストラで解いた人が少ないようなので一応解法を簡単に書くと、ダメージ合計を頂点とするグラフを作り、$i$ から $i+A_j$ にコスト $B_j$ の有向辺を貼ります。このグラフで 0 を始点とするダイクストラをして $h$ までの距離を出力すればいいです。この解法はむしろ同じ魔法を何度も使用できるからこそ使える方法ですね。
+提出したコードを貼っておきます。オーバーキル感はありますが、やること自体はシンプルで自分は好きです。
+atcoder.jp/contests/abc153/submissions/9756498
+あと実験としてここにも貼ります。
+Eのソースコード #include &amp;lt;bits/stdc++.h&amp;gt;typedef long long lint; using namespace std; //ただの辺 struct edge { using lint = long long int; int to; lint cost; //引数一つの時は距離1  edge(int t, lint c = 1) : to(t), cost(c) { } }; lint h, n; vector&amp;lt;lint&amp;gt; a, b; // dijkstra // depend:edge vector&amp;lt;long long int&amp;gt; dijkstra(vector&amp;lt;vector&amp;lt;edge&amp;gt;&amp;gt;&amp;amp; g, int start) { using lint = long long int; vector&amp;lt;lint&amp;gt; res(g.</description>
     </item>
     
     <item>

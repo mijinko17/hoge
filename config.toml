@@ -1,5 +1,5 @@
 baseURL = "https://mijinko17.github.io/hoge/"
-languageCode = "ja"
+languageCode = "jp"
 defaultContentLanguage = "ja"
 title = "biotope monologue"
 theme = "hermit"
@@ -18,7 +18,7 @@ publishDir="docs"
   name = "mijinko"
 
 [blackfriday]
-hrefTargetBlank = true
+  hrefTargetBlank = true
   noreferrerLinks = true
   nofollowLinks = true
 
@@ -79,3 +79,6 @@ hrefTargetBlank = true
   #   name = "About"
   #   url = "about-hugo/"
   #   weight = 20
+
+[markup.goldmark.renderer]
+  unsafe= true
