@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sun, 26 Jan 2020 22:13:03 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2020 22:39:01 +0900</lastBuildDate>
     
 	<atom:link href="https://mijinko17.github.io/hoge/tags/abc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ABC154</title>
+      <link>https://mijinko17.github.io/hoge/posts/abc154/</link>
+      <pubDate>Sun, 09 Feb 2020 22:39:01 +0900</pubDate>
+      
+      <guid>https://mijinko17.github.io/hoge/posts/abc154/</guid>
+      <description>A はい
+B string(s.size(),&#39;x&#39;)
+C unordered_map で数え上げ
+D 累積和
+E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
+F 何もできなかった&amp;hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。</description>
+    </item>
     
     <item>
       <title>ABC153</title>
@@ -18,7 +32,7 @@
       <pubDate>Sun, 26 Jan 2020 22:13:03 +0900</pubDate>
       
       <guid>https://mijinko17.github.io/hoge/posts/abc153/</guid>
-      <description>ペナ込み 74 分全完でした。 どう見ても典型の E で時間溶かしたの良くなかった……
+      <description>ペナ込み 74 分全完でした。 典型の E で時間溶かしたの良くなかった……
 問題: atcoder.jp/contests/abc153/tasks
 成績: atcoder.jp/users/mijinko/history/share/abc153
 Summary A 繰り上げの割り算でスッキリ書きます。

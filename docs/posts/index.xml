@@ -6,8 +6,35 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>jp</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sun, 26 Jan 2020 22:13:03 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 09 Feb 2020 22:39:01 +0900</lastBuildDate>
 		<atom:link href="https://mijinko17.github.io/hoge/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ABC154</title>
+			<link>https://mijinko17.github.io/hoge/posts/abc154/</link>
+			<pubDate>Sun, 09 Feb 2020 22:39:01 +0900</pubDate>
+			
+			<guid>https://mijinko17.github.io/hoge/posts/abc154/</guid>
+			<description>A はい
+B string(s.size(),&#39;x&#39;)
+C unordered_map で数え上げ
+D 累積和
+E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
+F 何もできなかった&amp;hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。</description>
+			<content type="html"><![CDATA[<h1 id="a">A</h1>
+<p>はい</p>
+<h1 id="b">B</h1>
+<p><code>string(s.size(),'x')</code></p>
+<h1 id="c">C</h1>
+<p>unordered_map で数え上げ</p>
+<h1 id="d">D</h1>
+<p>累積和</p>
+<h1 id="e">E</h1>
+<p>桁 dp。桁 dp の書き方に慣れてなくて苦戦</p>
+<h1 id="f">F</h1>
+<p>何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。</p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>ABC153</title>
@@ -15,7 +42,7 @@
 			<pubDate>Sun, 26 Jan 2020 22:13:03 +0900</pubDate>
 			
 			<guid>https://mijinko17.github.io/hoge/posts/abc153/</guid>
-			<description>ペナ込み 74 分全完でした。 どう見ても典型の E で時間溶かしたの良くなかった……
+			<description>ペナ込み 74 分全完でした。 典型の E で時間溶かしたの良くなかった……
 問題: atcoder.jp/contests/abc153/tasks
 成績: atcoder.jp/users/mijinko/history/share/abc153
 Summary A 繰り上げの割り算でスッキリ書きます。
@@ -34,7 +61,7 @@ atcoder.jp/contests/abc153/submissions/9756498
 あと実験としてここにも貼ります。
 Eのソースコード #include &amp;lt;bits/stdc++.h&amp;gt;typedef long long lint; using namespace std; //ただの辺 struct edge { using lint = long long int; int to; lint cost; //引数一つの時は距離1  edge(int t, lint c = 1) : to(t), cost(c) { } }; lint h, n; vector&amp;lt;lint&amp;gt; a, b; // dijkstra // depend:edge vector&amp;lt;long long int&amp;gt; dijkstra(vector&amp;lt;vector&amp;lt;edge&amp;gt;&amp;gt;&amp;amp; g, int start) { using lint = long long int; vector&amp;lt;lint&amp;gt; res(g.</description>
 			<content type="html"><![CDATA[<p>ペナ込み 74 分全完でした。
-どう見ても典型の E で時間溶かしたの良くなかった……</p>
+典型の E で時間溶かしたの良くなかった……</p>
 <p>問題: <a href="https://atcoder.jp/contests/abc153/tasks" target="_blank">atcoder.jp/contests/abc153/tasks</a></p>
 <p>成績: <a href="https://atcoder.jp/users/mijinko/history/share/abc153" target="_blank">atcoder.jp/users/mijinko/history/share/abc153</a></p>
 <h1 id="summary">Summary</h1>
@@ -134,7 +161,7 @@ Eのソースコード #include &amp;lt;bits/stdc++.h&amp;gt;typedef long long l
 <p>左端(右端でも ok)のモンスターをギリギリ巻き込むように爆破するのが最適なのはすぐわかります。あとは範囲攻撃による処理を高速にやれば十分です。</p>
 <p>範囲に関する処理として遅延セグ木を真っ先に考えましたが、自分の用意したセグ木がちゃんと使えるか自信がなくなり断念しました。ABC で遅延セグ木が出る筈がないというのもあります。</p>
 <p>他の範囲系処理の方法としていもす法がありますが、考察を進めるといもす法で爆破範囲の右端を管理すれば十分だとわかります。一回 RE を挟みましたが落ち着いて修正して AC。</p>
-<p>範囲処理の方法を冷静に吟味できたのは良い立ち回りだったと思います。</p>
+<p>範囲処理の方法を冷静に吟味できたのは成長だと思います。</p>
 ]]></content>
 		</item>
 		
