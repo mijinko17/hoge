@@ -18,12 +18,15 @@
       <pubDate>Sun, 09 Feb 2020 22:39:01 +0900</pubDate>
       
       <guid>https://mijinko17.github.io/hoge/posts/abc154/</guid>
-      <description>A はい
+      <description>Summary A はい
 B string(s.size(),&#39;x&#39;)
 C unordered_map で数え上げ
 D 累積和
 E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
-F 何もできなかった&amp;hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。</description>
+F 何もできなかった&amp;hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。
+#Detail
+D 見た瞬間累積和をする(尺取りでもいいが累積和の構造体を持ってるので累積和の方が楽)。小数が現れても高々 0.5 とかなので誤差を気にしなくても大丈夫だろうと考え特別な処理をせずに出すと WA を食らう。原因が分からなかったがとりあえずsetprecisionすると通る。
+E $n$以下の自然数の時点で桁 dp 臭。桁に関する条件で凄まじい桁 dp 臭。以前の反省を踏まえ全探索できないか見るが制約的に今回ばかりはできない。桁 dp で確定。しかし書き方になれず大苦戦する。練習します……</description>
     </item>
     
     <item>

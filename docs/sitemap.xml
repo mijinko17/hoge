@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://mijinko17.github.io/hoge/</loc>
+    <lastmod>2020-02-14T01:33:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mijinko17.github.io/hoge/posts/codefo_round_619/</loc>
+    <lastmod>2020-02-14T01:33:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mijinko17.github.io/hoge/posts/</loc>
+    <lastmod>2020-02-14T01:33:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mijinko17.github.io/hoge/tags/</loc>
+    <lastmod>2020-02-14T01:33:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mijinko17.github.io/hoge/tags/untagged/</loc>
+    <lastmod>2020-02-14T01:33:04+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://mijinko17.github.io/hoge/tags/abc/</loc>
     <lastmod>2020-02-09T22:39:01+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mijinko17.github.io/hoge/posts/abc154/</loc>
-    <lastmod>2020-02-09T22:39:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mijinko17.github.io/hoge/</loc>
-    <lastmod>2020-02-09T22:39:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mijinko17.github.io/hoge/posts/</loc>
-    <lastmod>2020-02-09T22:39:01+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mijinko17.github.io/hoge/tags/</loc>
     <lastmod>2020-02-09T22:39:01+09:00</lastmod>
   </url>
   
@@ -54,11 +64,6 @@
   
   <url>
     <loc>https://mijinko17.github.io/hoge/posts/first_post/</loc>
-    <lastmod>2020-01-20T03:11:20+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://mijinko17.github.io/hoge/tags/untagged/</loc>
     <lastmod>2020-01-20T03:11:20+09:00</lastmod>
   </url>
   

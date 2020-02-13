@@ -8,37 +8,46 @@
 	<meta name="theme-color" content="#494f5c">
 	<meta name="msapplication-TileColor" content="#494f5c">
 <meta itemprop="name" content="ABC154">
-<meta itemprop="description" content="A はい
+<meta itemprop="description" content="Summary A はい
 B string(s.size(),&#39;x&#39;)
 C unordered_map で数え上げ
 D 累積和
 E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
-F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。">
+F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。
+#Detail
+D 見た瞬間累積和をする(尺取りでもいいが累積和の構造体を持ってるので累積和の方が楽)。小数が現れても高々 0.5 とかなので誤差を気にしなくても大丈夫だろうと考え特別な処理をせずに出すと WA を食らう。原因が分からなかったがとりあえずsetprecisionすると通る。
+E $n$以下の自然数の時点で桁 dp 臭。桁に関する条件で凄まじい桁 dp 臭。以前の反省を踏まえ全探索できないか見るが制約的に今回ばかりはできない。桁 dp で確定。しかし書き方になれず大苦戦する。練習します……">
 <meta itemprop="datePublished" content="2020-02-09T22:39:01&#43;09:00" />
 <meta itemprop="dateModified" content="2020-02-09T22:39:01&#43;09:00" />
-<meta itemprop="wordCount" content="17">
+<meta itemprop="wordCount" content="33">
 
 
 
 <meta itemprop="keywords" content="ABC," /><meta property="og:title" content="ABC154" />
-<meta property="og:description" content="A はい
+<meta property="og:description" content="Summary A はい
 B string(s.size(),&#39;x&#39;)
 C unordered_map で数え上げ
 D 累積和
 E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
-F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。" />
+F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。
+#Detail
+D 見た瞬間累積和をする(尺取りでもいいが累積和の構造体を持ってるので累積和の方が楽)。小数が現れても高々 0.5 とかなので誤差を気にしなくても大丈夫だろうと考え特別な処理をせずに出すと WA を食らう。原因が分からなかったがとりあえずsetprecisionすると通る。
+E $n$以下の自然数の時点で桁 dp 臭。桁に関する条件で凄まじい桁 dp 臭。以前の反省を踏まえ全探索できないか見るが制約的に今回ばかりはできない。桁 dp で確定。しかし書き方になれず大苦戦する。練習します……" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mijinko17.github.io/hoge/posts/abc154/" />
 <meta property="article:published_time" content="2020-02-09T22:39:01+09:00" />
 <meta property="article:modified_time" content="2020-02-09T22:39:01+09:00" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="ABC154"/>
-<meta name="twitter:description" content="A はい
+<meta name="twitter:description" content="Summary A はい
 B string(s.size(),&#39;x&#39;)
 C unordered_map で数え上げ
 D 累積和
 E 桁 dp。桁 dp の書き方に慣れてなくて苦戦
-F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。"/>
+F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。
+#Detail
+D 見た瞬間累積和をする(尺取りでもいいが累積和の構造体を持ってるので累積和の方が楽)。小数が現れても高々 0.5 とかなので誤差を気にしなくても大丈夫だろうと考え特別な処理をせずに出すと WA を食らう。原因が分からなかったがとりあえずsetprecisionすると通る。
+E $n$以下の自然数の時点で桁 dp 臭。桁に関する条件で凄まじい桁 dp 臭。以前の反省を踏まえ全探索できないか見るが制約的に今回ばかりはできない。桁 dp で確定。しかし書き方になれず大苦戦する。練習します……"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/hoge/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/hoge/favicon-32x32.png">
@@ -85,18 +94,24 @@ F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$
 				<h1>ABC154</h1>
 			</header>
 			<div class="content">
-				<h1 id="a">A<a href="#a" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+				<h1 id="summary">Summary<a href="#summary" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="a">A<a href="#a" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>はい</p>
-<h1 id="b">B<a href="#b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="b">B<a href="#b" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p><code>string(s.size(),'x')</code></p>
-<h1 id="c">C<a href="#c" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="c">C<a href="#c" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>unordered_map で数え上げ</p>
-<h1 id="d">D<a href="#d" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="d">D<a href="#d" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>累積和</p>
-<h1 id="e">E<a href="#e" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="e">E<a href="#e" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>桁 dp。桁 dp の書き方に慣れてなくて苦戦</p>
-<h1 id="f">F<a href="#f" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="f">F<a href="#f" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p>何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$とかの線形和なのであとは係数を決めればいいがどうやればいいか分からなかった。</p>
+<p>#Detail</p>
+<h2 id="d-1">D<a href="#d-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>見た瞬間累積和をする(尺取りでもいいが累積和の構造体を持ってるので累積和の方が楽)。小数が現れても高々 0.5 とかなので誤差を気にしなくても大丈夫だろうと考え特別な処理をせずに出すと WA を食らう。原因が分からなかったがとりあえず<code>setprecision</code>すると通る。</p>
+<h2 id="e-1">E<a href="#e-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>$n$以下の自然数の時点で桁 dp 臭。桁に関する条件で凄まじい桁 dp 臭。以前の反省を踏まえ全探索できないか見るが制約的に今回ばかりはできない。桁 dp で確定。しかし書き方になれず大苦戦する。練習します……</p>
 
 			</div>
 			<hr class="post-end">
@@ -109,6 +124,9 @@ F 何もできなかった&hellip; 結局答えは$f(r_1-1,k)$とか$f(l,c_1-1)$
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://mijinko17.github.io/hoge/posts/codefo_round_619/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>Codeforces Round 619</span>
+			</a>
 			<a class="prev-post" href="https://mijinko17.github.io/hoge/posts/abc153/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>ABC153</span>
 			</a>
