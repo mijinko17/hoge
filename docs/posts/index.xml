@@ -6,8 +6,242 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>jp</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Fri, 14 Feb 2020 01:33:04 +0900</lastBuildDate>
+		<lastBuildDate>Thu, 30 Apr 2020 21:30:34 +0900</lastBuildDate>
 		<atom:link href="https://mijinko17.github.io/hoge/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>AtCoder青になったのでイキる</title>
+			<link>https://mijinko17.github.io/hoge/posts/into_blue/</link>
+			<pubDate>Thu, 30 Apr 2020 21:30:34 +0900</pubDate>
+			
+			<guid>https://mijinko17.github.io/hoge/posts/into_blue/</guid>
+			<description>先日の ABC で念願の青コーダーになりました。
+黄パフォで青に入れて気持ちよかったです。
+この記事では青になるまでにやってきたことを書いてイキっていこうと思います。
+何をした   アルゴリズム、データ構造の勉強をした(去年 8 月〜)
+学んだアルゴリズムはだいたいここを見れば分かります。
+青になった時点でのライブラリ
+アルゴリズム習得の目的は次の 2 つです。
+ 解ける問題を増やす 知識不足で解けないかもしれない、という不安を払拭する  2 つ目が重要です。問題を解く上で「今の自分の知識では無理かも……」という精神状態になってしまうと解ける問題も解けません。これを回避したければ目にしがちなアルゴリズムは全て習得してしまうべきです。自分はこの考えのもとに緑の頃から遅延セグ木や FFT の勉強をしていました。
+たまに twitter で「foo 色に bar アルゴリズムは必要ない！！」と主張してる人を見かけますが、上記の理由からアルゴリズムの学習はどのタイミングでやっても意味があると思っています。
+具体的な学習方法についてですが、友人の友人が github で公開している競プロライブラリにあるアルゴリズムをググり、けんちょんさんの記事で勉強することが多かったです。
+  ライブラリを整備した(去年 9 月〜)
+目的は以下の 2 つです。
+ ライブラリをぺたぺた貼って問題を瞬殺できるようにするため。 実装力の低さをカバーするため  これについてあまり語ることはありません。ちなみにライブラリはスニペットですぐ貼れるようにすると楽です。
+  実験をするようにした(去年 9 月〜)
+きっかけはつよつよの友人が凄まじい diff の問題を実験しまくって解くのを見たことだったと思います。当時水 diff すら怪しかった自分ですが、彼を真似して実験を大切にするようにしたら青 diff も解けるようになりました。
+記述が少なくてやる気なさげに見えるかもしれませんが、自分が青になる上で一番効いたのは実験だと思ってます。実験はエライ！！
+  区間、添字に関する考え方を徹底させた(今年 1 月〜)
+いつも添字バグで泣いてる割には対策を全くしてないのはダサいなと思い、添字と真剣に向き合いました。具体的には以下の考え方を導入しました。
+ 添字 i は、(0-indexed での) i 番目の要素の左側にある仕切りだと思う。 区間(i,j)は、i と j の仕切りに挟まれた要素の集合と思う(これは実質的に半開区間と同じ)。 イテレータについてもこの記事を参考に仕切りだと思う。 v のイテレータ itr はitr-v.</description>
+			<content type="html"><![CDATA[<p>先日の ABC で念願の青コーダーになりました。</p>
+<p><img src="/hoge/rating_graph.png" alt="rating"></p>
+<p><img src="/hoge/performance_graph.png" alt="performance"></p>
+<p><img src="/hoge/problems.png" alt="performance"></p>
+<p>黄パフォで青に入れて気持ちよかったです。</p>
+<p>この記事では青になるまでにやってきたことを書いてイキっていこうと思います。</p>
+<h1 id="何をした">何をした</h1>
+<ol>
+<li>
+<p>アルゴリズム、データ構造の勉強をした(去年 8 月〜)</p>
+<p>学んだアルゴリズムはだいたいここを見れば分かります。</p>
+<p><a href="https://github.com/mijinko17/dotfiles/blob/2ba084811ccb5e862c7deefa8c8ac0df886c31a1/.config/nvim/snippets/cpp.snip" target="_blank">青になった時点でのライブラリ</a></p>
+<p>アルゴリズム習得の目的は次の 2 つです。</p>
+<ul>
+<li>解ける問題を増やす</li>
+<li>知識不足で解けないかもしれない、という不安を払拭する</li>
+</ul>
+<p>2 つ目が重要です。問題を解く上で「今の自分の知識では無理かも……」という精神状態になってしまうと解ける問題も解けません。これを回避したければ目にしがちなアルゴリズムは全て習得してしまうべきです。自分はこの考えのもとに緑の頃から遅延セグ木や FFT の勉強をしていました。</p>
+<p>たまに twitter で「foo 色に bar アルゴリズムは必要ない！！」と主張してる人を見かけますが、上記の理由からアルゴリズムの学習はどのタイミングでやっても意味があると思っています。</p>
+<p>具体的な学習方法についてですが、友人の友人が github で公開している競プロライブラリにあるアルゴリズムをググり、けんちょんさんの記事で勉強することが多かったです。</p>
+</li>
+<li>
+<p><a href="https://github.com/mijinko17/dotfiles/blob/2ba084811ccb5e862c7deefa8c8ac0df886c31a1/.config/nvim/snippets/cpp.snip" target="_blank">ライブラリ</a>を整備した(去年 9 月〜)</p>
+<p>目的は以下の 2 つです。</p>
+<ul>
+<li>ライブラリをぺたぺた貼って問題を瞬殺できるようにするため。</li>
+<li>実装力の低さをカバーするため</li>
+</ul>
+<p>これについてあまり語ることはありません。ちなみにライブラリはスニペットですぐ貼れるようにすると楽です。</p>
+</li>
+<li>
+<p>実験をするようにした(去年 9 月〜)</p>
+<p>きっかけはつよつよの友人が凄まじい diff の問題を実験しまくって解くのを見たことだったと思います。当時水 diff すら怪しかった自分ですが、彼を真似して実験を大切にするようにしたら青 diff も解けるようになりました。</p>
+<p>記述が少なくてやる気なさげに見えるかもしれませんが、自分が青になる上で一番効いたのは実験だと思ってます。実験はエライ！！</p>
+</li>
+<li>
+<p>区間、添字に関する考え方を徹底させた(今年 1 月〜)</p>
+<p>いつも添字バグで泣いてる割には対策を全くしてないのはダサいなと思い、添字と真剣に向き合いました。具体的には以下の考え方を導入しました。</p>
+<ul>
+<li>添字 i は、(0-indexed での) i 番目の要素の左側にある仕切りだと思う。</li>
+<li>区間(i,j)は、i と j の仕切りに挟まれた要素の集合と思う(これは実質的に半開区間と同じ)。</li>
+<li>イテレータについても<a href="https://betrue12.hateblo.jp/entry/2019/12/04/000146">この記事</a>を参考に仕切りだと思う。</li>
+<li><code>v</code> のイテレータ <code>itr</code> は<code>itr-v.begin()</code>で同じ仕切りに対応する添字に変換できることに注意する。</li>
+</ul>
+<p>これらの考え方に統一することで添字に関するバグがかなり減りました。特に <code>lower_bound</code>、<code>upper_bound</code> を使う問題でのミスが殆どなくなりました。この考えをそのまま他人に勧めるつもりはありませんが、添字の捉え方を何かしら統一させておくとバグを少しは減らせるかもしれません。</p>
+</li>
+<li>
+<p>順位表を見る練習をした(去年 12 月〜)</p>
+<p>正確には問題毎の AC 数をコンテスト中に確認する練習です。練習とは言っても単にコンテスト中に順位表を見るだけです。順位表の確認は自分の順位を直視することになり結構メンタルにくるので、回数を重ねて慣れるようにしていました。</p>
+</li>
+<li>
+<p>山を張った</p>
+<p>「自分にはできない」という自信のなさを払拭する一度の成功体験が欲しくて山を張ったことがあります。具体的には以下の 2 回です。</p>
+<ul>
+<li>
+<p>ABC の E を本番で解くためにグラフの問題に集中して取り組んだ(去年 10 月)</p>
+<p>出題率の高いグラフに絞り、グラフなら絶対解ける自信がつくまで練習しました。練習を始めてから 2 週間ほどでグラフが出題され、初めて ABC-E をコンテスト中に AC することができました。</p>
+</li>
+<li>
+<p>AGC041 の tourist 回に備えて tourist が writer をしている回の AGC を直前に解いた(去年 12 月)</p>
+<p>こちらは 700 点以上を本番で解きたくてやりました。無事この回の B を AC できました。</p>
+</li>
+</ul>
+<p>その後も ABC-E や 700 点以上の問題をコンテスト中に解けているので、この試みには一度の成功体験以上の意味があったと認識しています。</p>
+<p>一度も達成したことのないことに向けて努力するのは精神的に辛いので、山を張って無理やり成功体験をもぎ取るのはありなんじゃないかと思います。</p>
+</li>
+</ol>
+<h1 id="何をしなかった">何をしなかった</h1>
+<ol>
+<li>
+<p>蟻本による精進</p>
+<p>しなかったというよりはできませんでした。水 diff 以上が解けず悩んでいた時期に購入はしたのですが、結局ほとんど使ってません。理由としては以下が挙げられます。</p>
+<ul>
+<li>1 つの教材と向き合い続ける根気強さがなかった</li>
+<li>紙の教材でプログラミングの勉強をするのは筋が悪い感じがした</li>
+<li>AtCoder の問題で演習をしたかった</li>
+</ul>
+<p>1 つめの問題以外はけんちょんさんの AtCoder 版蟻本で解決するのでこちらを活用することが多かったです。これに限らず現在はネット上に競プロの記事がたくさんあるので、教材として蟻本にこだわる理由はないと感じています。</p>
+</li>
+<li>
+<p>マクロの整備</p>
+<p>マクロを使わなかった理由は以下の 2 つです。</p>
+<ul>
+<li>
+<p>読みにくい</p>
+<p>競プロ始めたての頃に <code>rep</code> やら <code>REP</code> やら <code>rrep</code> だらけのコードが読みにくすぎてブチ切れた経験から、マクロは使わないと心に決めています。</p>
+</li>
+<li>
+<p>エディタ側の工夫で同様の恩恵を得られる</p>
+<p>マクロを使わないので理解の浅い部分がありますが、マクロのメリットは以下の 2 点だと認識しています。</p>
+<ol>
+<li>for 文や <code>push_back</code> などを少ないキー操作で打てる</li>
+<li>for 文の変数を変えるときに楽(3 箇所変えなくて良い)</li>
+</ol>
+<p>これらの効能は全て適切にツールを使うことで得られます(1 はスニペットと入力補完で、2 は lsp の rename 機能で)。わざわざマクロを使う必要はありません。長くなるのでこの辺で止めておきますが、入力の面倒臭さはエディタ側で解決すべき問題であるというのが持論です。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>バチャ、あさかつよるかつ</p>
+<p>予め断っておくと、バチャ自体は有効な練習方法だと認識しています。バチャをしなかった理由は以下の 2 つです。</p>
+<ul>
+<li>本番以外の環境で 2 時間近く拘束されることに耐えられない</li>
+<li>コドフォなどを含めれば rated のコンテストは十分にあり、そちらの方が優先度が高い</li>
+</ul>
+<p>現状のコンテスト数に満足できなくなるか、レート 2000 以上になって rated が少なくなってきたら取り組む可能性は十分にあります。</p>
+</li>
+<li>
+<p>解説 AC</p>
+<p>どんな問題も自力で AC したいので極力解説は見ません。それがいいのか悪いのかはちょっと分かりません。そろそろ記事書くの疲れてきました。</p>
+</li>
+<li>
+<p>streak 繋ぎ</p>
+<p>ものぐさな自分が毎日競プロするのは無理です。</p>
+</li>
+<li>
+<p>NoSub</p>
+<p>疲れてきたので、「制約と誓約」という言葉を紹介するにとどめます。</p>
+</li>
+</ol>
+<h1 id="今後">今後</h1>
+<p>正直に言うと黄色を目指すモチベーションは高くありません。なれる自信がありませんし、なれるのだとしても、そのための努力は黄色になれる喜びに見合わない膨大な量になるだろうからです。上を目指してガシガシ頑張ることはしばらくないでしょう。</p>
+<p>もし本気で頑張るなら黄色になれるという自信を手に入れるところから始めると思います。けど何から手をつければいいのやら……。</p>
+<p>しばらくは水堕ちしないように頑張ります。</p>
+<h1 id="まとめ">まとめ</h1>
+<p>記事の締め方が分からなくて他の人の色変記事を読んでいたのですが、普通は競プロを始めたきっかけとかにも触れたりするんですね。自分の始めたきっかけは「競プロのコンテストを理由に焼肉を断られた」です。</p>
+<p>とりあえず箇条書きで書くといい感じらしいのでまとめます。</p>
+<ul>
+<li>実験は大事</li>
+<li>解ける自信を持てるようにするのも大事</li>
+<li>マクロはクソ</li>
+<li>黄色は遠い</li>
+</ul>
+<p>最後までイキリ記事に付き合ってくださりありがとうございました。</p>
+]]></content>
+		</item>
+		
+		<item>
+			<title>Macを買った時に設定したこと</title>
+			<link>https://mijinko17.github.io/hoge/posts/mynewmac/</link>
+			<pubDate>Sat, 29 Feb 2020 05:10:50 +0900</pubDate>
+			
+			<guid>https://mijinko17.github.io/hoge/posts/mynewmac/</guid>
+			<description>dotfiles   brew のインスコ-&amp;gt;brew install git-&amp;gt;git clone-&amp;gt;brew bundle の流れ。ちなみに git 自体は元から入っていた。
+  brew のインストールにめちゃ時間掛かってびっくりしてしまった。xcode も一緒に入れるらしくそこで時間吸われたっぽい。
+  brew bundle も永遠に終わらず、バイトに行く前に回し始めておいたのだが帰ってきたらエラー終了していた。llvm にやたら時間が掛かっていたっぽい。
+  neovim 概ね問題なかったが、pip で neovim の何かを入れるのを忘れていて deoplete に怒られてしまった。
+mac のシステム環境設定   dock を右寄せ、自動的に非表示。使わないアプリを dock から消して iterm2 を追加。最近使用したアプリを dock に追加しないよう設定。
+  finder での並び順を常に種類順に。
+  タッチによるクリックを有効化。
+  capslock に control を割り当て。
+  command+option+J で iterm2 を起動するようにした。Automator を使った。
+  ターミナル   iterm2 に hybrid-material のカラースキームを適用。</description>
+			<content type="html"><![CDATA[<h1 id="dotfiles">dotfiles</h1>
+<ul>
+<li>
+<p>brew のインスコ-&gt;brew install git-&gt;git clone-&gt;brew bundle の流れ。ちなみに git 自体は元から入っていた。</p>
+</li>
+<li>
+<p>brew のインストールにめちゃ時間掛かってびっくりしてしまった。xcode も一緒に入れるらしくそこで時間吸われたっぽい。</p>
+</li>
+<li>
+<p>brew bundle も永遠に終わらず、バイトに行く前に回し始めておいたのだが帰ってきたらエラー終了していた。llvm にやたら時間が掛かっていたっぽい。</p>
+</li>
+</ul>
+<h1 id="neovim">neovim</h1>
+<p>概ね問題なかったが、pip で neovim の何かを入れるのを忘れていて deoplete に怒られてしまった。</p>
+<h1 id="mac-のシステム環境設定">mac のシステム環境設定</h1>
+<ul>
+<li>
+<p>dock を右寄せ、自動的に非表示。使わないアプリを dock から消して iterm2 を追加。最近使用したアプリを dock に追加しないよう設定。</p>
+</li>
+<li>
+<p>finder での並び順を常に種類順に。</p>
+</li>
+<li>
+<p>タッチによるクリックを有効化。</p>
+</li>
+<li>
+<p>capslock に control を割り当て。</p>
+</li>
+<li>
+<p>command+option+J で iterm2 を起動するようにした。Automator を使った。</p>
+</li>
+</ul>
+<h1 id="ターミナル">ターミナル</h1>
+<ul>
+<li>
+<p>iterm2 に hybrid-material のカラースキームを適用。</p>
+</li>
+<li>
+<p>zsh に移行。具体的には git の補完とか branch をプロンプトに表示する設定をした。これからやる人は vcs_info とかで調べると幸せになれそう。</p>
+</li>
+<li>
+<p>ターミナルをリロードするスクリプトをエイリアスに割り当てた。.zshrc を書き換えまくるときの QOL が爆上がりする。</p>
+</li>
+</ul>
+<h1 id="これからやりたいこと">これからやりたいこと</h1>
+<ul>
+<li>
+<p>zsh のプロンプトに git の情報を載せるところをもう少しちゃんとやる(まだ branch 表示とコミットしてないファイルの検知しかできない)</p>
+</li>
+<li>
+<p>lsp 周りをすっきりさせる。まあこれは buildin lsp を待とうかな。</p>
+</li>
+</ul>
+]]></content>
+		</item>
 		
 		<item>
 			<title>Codeforces Round 619</title>
@@ -126,7 +360,7 @@ Eのソースコード #include &amp;lt;bits/stdc++.h&amp;gt;typedef long long l
 <p><a href="https://atcoder.jp/contests/abc153/submissions/9756498" target="_blank">atcoder.jp/contests/abc153/submissions/9756498</a></p>
 <p>あと実験としてここにも貼ります。</p>
 <details><summary>Eのソースコード</summary><div>
-<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
+<div class="highlight"><pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">typedef</span> <span class="kt">long</span> <span class="kt">long</span> <span class="n">lint</span><span class="p">;</span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
@@ -136,52 +370,52 @@ Eのソースコード #include &amp;lt;bits/stdc++.h&amp;gt;typedef long long l
     <span class="kt">int</span> <span class="n">to</span><span class="p">;</span>
     <span class="n">lint</span> <span class="n">cost</span><span class="p">;</span>
     <span class="c1">//引数一つの時は距離1
-</span><span class="c1"></span>    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="n">lint</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">to</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="p">,</span> <span class="n">cost</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1"></span>    <span class="n">edge</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="p">,</span> <span class="n">lint</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="n">to</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">cost</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
     <span class="p">}</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="n">lint</span> <span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="n">lint</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
 
 <span class="c1">// dijkstra
-</span><span class="c1"></span><span class="c1">// depend:edge
-</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span><span class="o">&gt;</span><span class="o">&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="c1">// depend:edge
+</span><span class="c1"></span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;&gt;&amp;</span> <span class="n">g</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">using</span> <span class="n">lint</span> <span class="o">=</span> <span class="kt">long</span> <span class="kt">long</span> <span class="kt">int</span><span class="p">;</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">lint</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">LLONG_MAX</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">lint</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">(</span><span class="n">g</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">LLONG_MAX</span><span class="p">);</span>
     <span class="n">res</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="c1">// first:距離、second:行き先
-</span><span class="c1"></span>    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;</span><span class="o">&gt;</span><span class="p">,</span>
-                   <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;</span><span class="o">&gt;</span><span class="o">&gt;</span>
+</span><span class="c1"></span>    <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+                   <span class="n">greater</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">lint</span><span class="p">,</span> <span class="n">lint</span><span class="o">&gt;&gt;&gt;</span>
         <span class="n">pq</span><span class="p">;</span>
-    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">lint</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
-        <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span><span class="p">});</span>
+    <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">pq</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+        <span class="n">lint</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">first</span><span class="p">,</span> <span class="n">now</span> <span class="o">=</span> <span class="n">pq</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+        <span class="n">pq</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">dist</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="p">.</span><span class="n">size</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">edge</span> <span class="n">e</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">]</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">edge</span> <span class="n">e</span> <span class="o">=</span> <span class="n">g</span><span class="p">[</span><span class="n">now</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">res</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="n">cost</span><span class="p">)</span> <span class="p">{</span>
                 <span class="n">res</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">now</span><span class="p">]</span> <span class="o">+</span> <span class="n">e</span><span class="p">.</span><span class="n">cost</span><span class="p">;</span>
-                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">]</span><span class="p">,</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+                <span class="n">pq</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">],</span> <span class="n">e</span><span class="p">.</span><span class="n">to</span><span class="p">));</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">h</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">;</span>
-    <span class="n">a</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">h</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+    <span class="n">a</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span>
-    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">g</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">+</span><span class="o">+</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">edge</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">edge</span><span class="o">&gt;&gt;</span> <span class="n">g</span><span class="p">(</span><span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">h</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="n">edge</span><span class="p">(</span><span class="n">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">h</span><span class="p">),</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]));</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">dijkstra</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">0</span><span class="p">)[</span><span class="n">h</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></div></details>
 <p>想像以上に見辛くて笑っちゃいますね……。i がひどすぎる……</p>
