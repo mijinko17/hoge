@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 30 Apr 2020 21:30:34 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2020 10:23:10 +0900</lastBuildDate>
     
 	<atom:link href="https://mijinko17.github.io/hoge/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mujin Programming Challenge 2018 D うほょじご</title>
+      <link>https://mijinko17.github.io/hoge/posts/mujin_pc_2018_d/</link>
+      <pubDate>Thu, 07 May 2020 10:23:10 +0900</pubDate>
+      
+      <guid>https://mijinko17.github.io/hoge/posts/mujin_pc_2018_d/</guid>
+      <description>色々解法を思いついたので書いてみる。
+問題
+概要 $X:=\{\ 0$以上$1000$未満の整数$\ \}$ とする。
+正の整数 $n$、$m&amp;lt;1000$ が与えられる。問題文で定義される $f:X \times X\rightarrow X \times X$ について、次を満たす $(p,q) \in X \times X$ の個数を求めよ。
+ $1 \leq p \leq n$, $1 \leq q \leq m$ $(p,q)$ に $f$ を繰り返し施しても第一成分、第二成分いずれも$0$にならない。  解法 1(解説の方法) $f$ を繰り返し施したとき第一成分、第二成分どちらかが 0 になるものを数えてもよい。これを数えるには $X \times X$ の元全体を頂点とするグラフに操作 $f$ から誘導される有向辺を張り、その辺に沿って移動したときにいつか $(0,k)$ か $(k,0)$ になるものを数えればいい。これは $f$ から誘導される辺とは逆向きの辺を張って $(0,k)$ と $(k,0)$ から BFS をすれば調べられる。
+実装上は$p$、$q$ いずれかが 0 のとき$f(p,q)=(0,0)$と定義して$(0,0)$から BFS するのが楽。
+解法 2 (union-find) $p$、$q$ いずれかが 0 のとき $f(p,q)=(0,0)$ としておく。</description>
+    </item>
     
     <item>
       <title>AtCoder青になったのでイキる</title>
