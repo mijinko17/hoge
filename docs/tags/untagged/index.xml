@@ -7,10 +7,35 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 07 May 2020 10:23:10 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 20:05:43 +0900</lastBuildDate>
     
 	<atom:link href="https://mijinko17.github.io/hoge/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;erが競プロでRustを使おうとして困ったことたち</title>
+      <link>https://mijinko17.github.io/hoge/posts/rust_compro/</link>
+      <pubDate>Sat, 09 May 2020 20:05:43 +0900</pubDate>
+      
+      <guid>https://mijinko17.github.io/hoge/posts/rust_compro/</guid>
+      <description>備忘録がてら。とりあえずうまくいく書き方を載せます。
+ちょこちょこ追加予定。
+入出力 何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+proconio
+配列を宣言したい   長さ n、初期値 0 の配列を宣言する
+letn: usize =10;letv: Vec&amp;lt;i32&amp;gt;=vec![0;n];長さの指定はusizeである必要があることに注意する。
+初期値の型が明らかな場合型指定はいらない。
+letn: usize =10;letv=vec![0;n];  usizeとは限らない変数を用いて長さを指定する
+letn: i32 =10;letv=vec![0;nasusize];asで型変換できる。
+  多次元配列を宣言する
+  n×m、初期値 0 の二次元配列を宣言する。
+letn: usize =10;letm: usize =18;letv=vec![vec![0;m];n];3 次元でも同様。
+  (グラフなどを想定して) 空の配列を n 個持った配列を宣言する
+letn: usize =10;// g,h,iどれでもOK letmutg: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;=vec![vec![];n];letmuth=vec![vec![]asVec&amp;lt;i32&amp;gt;;n];letmuti=vec![vec![0;0];n];空の配列は型がわからないので何らかの形での指定が必要。
+    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。
+  BTreeMap</description>
+    </item>
     
     <item>
       <title>Mujin Programming Challenge 2018 D うほょじご</title>
