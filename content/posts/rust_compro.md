@@ -14,9 +14,9 @@ tags:
 
 ## 入出力
 
-何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
+何もわからない。自分は AtCoder の rust の提出から適当に拝借している。
 
-現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。
 
 <a href="https://docs.rs/proconio/0.4.1/proconio/" target="_blank">proconio</a>
 
@@ -69,7 +69,12 @@ tags:
       let mut i = vec![vec![0; 0]; n];
       ```
 
-      空の配列は型がわからないので何らかの形での指定が必要。
+      空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。
+
+      ```rs
+      let n: usize = 10;
+      let mut g = vec![vec![]; n];
+      ```
 
 ## データ構造系
 
@@ -95,6 +100,47 @@ tags:
       ```
 
       `or_insert`でキーが存在しない場合に 0 を入れてくれる。
+
+- BinaryHeap
+
+  1.  宣言
+      ```rs
+      let mut heap: BinaryHeap<i32> = BinaryHeap::new();
+      ```
+  1.  値を取り出す
+
+      ```rs
+      let mut heap = BinaryHeap::new();
+      heap.push(3);
+      heap.push(5);
+      heap.push(17);
+
+      // popで値の取得も同時に行う
+      let x = heap.pop().unwrap();
+
+      // ダイクストラが捗る書き方
+      // 5,3の順に取り出される
+      while let Some(y) = heap.pop() {
+        println!("{}", y);
+      }
+      ```
+
+      `pop()`の返り値が option である(今回は `Option<i32>`)ことに注意する。`Option<T>`は値として T だけでなく何らかの失敗を表す`None`を取ることができる。`pop()`は heap が空の時に値を取り出せないので、取得できなかったことも表現できる`Option<T>`を返り値にするのが自然。
+
+  1.  最小を取り出す版
+
+      ```rs
+       let mut heap: BinaryHeap<std::cmp::Reverse<i32>> = BinaryHeap::new();
+       heap.push(std::cmp::Reverse(3));
+       heap.push(std::cmp::Reverse(5));
+       let &std::cmp::Reverse(x) = heap.peek().unwrap();
+       assert_eq!(x, 3);
+      ```
+
+      `std::cmp::Reverse`で向きを逆転させたタイプを得る。
+      構造化束縛っぽく書くといい感じに取り出せる。
+
+      BinaryHeap では型に実装された大小関係以外は使えないっぽい。少なくとも独自の比較関数をぶち込んだりはできない。自分で構造体を作って Ord を定義すればまあ。
 
 ## 三項演算子を使いたい
 

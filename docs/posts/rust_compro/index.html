@@ -10,8 +10,8 @@
 <meta itemprop="name" content="C&#43;&#43;erが競プロでRustを使おうとして困ったことたち">
 <meta itemprop="description" content="備忘録がてら。とりあえずうまくいく書き方を載せます。
 ちょこちょこ追加予定。
-入出力 何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
-現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+入出力 何もわからない。自分は AtCoder の rust の提出から適当に拝借している。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。
 proconio
 配列を宣言したい   長さ n、初期値 0 の配列を宣言する
 letn: usize =10;letv: Vec&lt;i32&gt;=vec![0;n];長さの指定はusizeである必要があることに注意する。
@@ -22,20 +22,19 @@ letn: i32 =10;letv=vec![0;nasusize];asで型変換できる。
   n×m、初期値 0 の二次元配列を宣言する。
 letn: usize =10;letm: usize =18;letv=vec![vec![0;m];n];3 次元でも同様。
   (グラフなどを想定して) 空の配列を n 個持った配列を宣言する
-letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列は型がわからないので何らかの形での指定が必要。
-    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。
-  BTreeMap">
+letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。
+letn: usize =10;letmutg=vec![vec![];n];    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。">
 <meta itemprop="datePublished" content="2020-05-09T20:05:43&#43;09:00" />
 <meta itemprop="dateModified" content="2020-05-09T20:05:43&#43;09:00" />
-<meta itemprop="wordCount" content="69">
+<meta itemprop="wordCount" content="99">
 
 
 
 <meta itemprop="keywords" content="untagged," /><meta property="og:title" content="C&#43;&#43;erが競プロでRustを使おうとして困ったことたち" />
 <meta property="og:description" content="備忘録がてら。とりあえずうまくいく書き方を載せます。
 ちょこちょこ追加予定。
-入出力 何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
-現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+入出力 何もわからない。自分は AtCoder の rust の提出から適当に拝借している。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。
 proconio
 配列を宣言したい   長さ n、初期値 0 の配列を宣言する
 letn: usize =10;letv: Vec&lt;i32&gt;=vec![0;n];長さの指定はusizeである必要があることに注意する。
@@ -46,9 +45,8 @@ letn: i32 =10;letv=vec![0;nasusize];asで型変換できる。
   n×m、初期値 0 の二次元配列を宣言する。
 letn: usize =10;letm: usize =18;letv=vec![vec![0;m];n];3 次元でも同様。
   (グラフなどを想定して) 空の配列を n 個持った配列を宣言する
-letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列は型がわからないので何らかの形での指定が必要。
-    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。
-  BTreeMap" />
+letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。
+letn: usize =10;letmutg=vec![vec![];n];    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://mijinko17.github.io/hoge/posts/rust_compro/" />
 <meta property="article:published_time" content="2020-05-09T20:05:43+09:00" />
@@ -57,8 +55,8 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![v
 <meta name="twitter:title" content="C&#43;&#43;erが競プロでRustを使おうとして困ったことたち"/>
 <meta name="twitter:description" content="備忘録がてら。とりあえずうまくいく書き方を載せます。
 ちょこちょこ追加予定。
-入出力 何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
-現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+入出力 何もわからない。自分は AtCoder の rust の提出から適当に拝借している。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。
 proconio
 配列を宣言したい   長さ n、初期値 0 の配列を宣言する
 letn: usize =10;letv: Vec&lt;i32&gt;=vec![0;n];長さの指定はusizeである必要があることに注意する。
@@ -69,9 +67,8 @@ letn: i32 =10;letv=vec![0;nasusize];asで型変換できる。
   n×m、初期値 0 の二次元配列を宣言する。
 letn: usize =10;letm: usize =18;letv=vec![vec![0;m];n];3 次元でも同様。
   (グラフなどを想定して) 空の配列を n 個持った配列を宣言する
-letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列は型がわからないので何らかの形での指定が必要。
-    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。
-  BTreeMap"/>
+letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![vec![];n];letmuth=vec![vec![]asVec&lt;i32&gt;;n];letmuti=vec![vec![0;0];n];空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。
+letn: usize =10;letmutg=vec![vec![];n];    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。"/>
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/hoge/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/hoge/favicon-32x32.png">
@@ -121,8 +118,8 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![v
 				<p>備忘録がてら。とりあえずうまくいく書き方を載せます。</p>
 <p>ちょこちょこ追加予定。</p>
 <h2 id="入出力">入出力<a href="#入出力" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
-<p>何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。</p>
-<p>現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。</p>
+<p>何もわからない。自分は AtCoder の rust の提出から適当に拝借している。</p>
+<p>現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。</p>
 <p><a href="https://docs.rs/proconio/0.4.1/proconio/" target="_blank">proconio</a></p>
 <h2 id="配列を宣言したい">配列を宣言したい<a href="#配列を宣言したい" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <ul>
@@ -158,8 +155,10 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![v
 </span><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">g</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
 </span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
 </span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
-</span></code></pre></div><p>空の配列は型がわからないので何らかの形での指定が必要。</p>
-</li>
+</span></code></pre></div><p>空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="n">n</span>: <span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
+</span></code></pre></div></li>
 </ol>
 </li>
 </ul>
@@ -185,6 +184,43 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![v
 </li>
 </ol>
 </li>
+<li>
+<p>BinaryHeap</p>
+<ol>
+<li>
+<p>宣言</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span>: <span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></code></pre></div></li>
+<li>
+<p>値を取り出す</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// popで値の取得も同時に行う
+</span><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// ダイクストラが捗る書き方
+</span><span class="c1">// 5,3の順に取り出される
+</span><span class="c1"></span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;{}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p><code>pop()</code>の返り値が option である(今回は <code>Option&lt;i32&gt;</code>)ことに注意する。<code>Option&lt;T&gt;</code>は値として T だけでなく何らかの失敗を表す<code>None</code>を取ることができる。<code>pop()</code>は heap が空の時に値を取り出せないので、取得できなかったことも表現できる<code>Option&lt;T&gt;</code>を返り値にするのが自然。</p>
+</li>
+<li>
+<p>最小を取り出す版</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span>: <span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span><span class="w">
+</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span><span class="w">
+</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="o">&amp;</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w"> </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span></code></pre></div><p><code>std::cmp::Reverse</code>で向きを逆転させたタイプを得る。
+構造化束縛っぽく書くといい感じに取り出せる。</p>
+<p>BinaryHeap では型に実装された大小関係以外は使えないっぽい。少なくとも独自の比較関数をぶち込んだりはできない。自分で構造体を作って Ord を定義すればまあ。</p>
+</li>
+</ol>
+</li>
 </ul>
 <h2 id="三項演算子を使いたい">三項演算子を使いたい<a href="#三項演算子を使いたい" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
 <p><code>if</code>文で頑張る。</p>
@@ -203,6 +239,9 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&lt;Vec&lt;i32&gt;&gt;=vec![v
 			</footer>
 		</article>
 		<div class="post-nav thin">
+			<a class="next-post" href="https://mijinko17.github.io/hoge/posts/arc107-d/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;</span><br><span>ARC107 D Number of Multisets</span>
+			</a>
 			<a class="prev-post" href="https://mijinko17.github.io/hoge/posts/mujin_pc_2018_d/">
 				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>Mujin Programming Challenge 2018 D うほょじご</span>
 			</a>

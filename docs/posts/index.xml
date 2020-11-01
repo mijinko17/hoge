@@ -6,8 +6,103 @@
 		<generator>Hugo -- gohugo.io</generator>
 		<language>jp</language>
 		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-		<lastBuildDate>Sat, 09 May 2020 20:05:43 +0900</lastBuildDate>
+		<lastBuildDate>Sun, 01 Nov 2020 13:40:09 +0900</lastBuildDate>
 		<atom:link href="https://mijinko17.github.io/hoge/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>ARC107 D Number of Multisets</title>
+			<link>https://mijinko17.github.io/hoge/posts/arc107-d/</link>
+			<pubDate>Sun, 01 Nov 2020 13:40:09 +0900</pubDate>
+			
+			<guid>https://mijinko17.github.io/hoge/posts/arc107-d/</guid>
+			<description>解説と違う方法で解いたので書く。
+要約   この問題の答えは次を全て満たす有限数列の個数に等しい。
+ 正整数列である。 数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。 数列の総和は$n-k$に等しい。 この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。    上記の数列の個数は dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)と定義することで計算できる。
+  累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。
+  くわしく 操作への言い換え 条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。
+  $1$ が $k$ 個あるような多重集合 $M$ を用意する。
+  以下を $n-k$ 回行う。
+ $M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)    2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i+1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。
+数列への言い換え 1 上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。
+$$ a_i:=(1/2^i\text{に分割を行う回数}) $$
+この数列は次の性質を満たすことがわかる。
+ 非負整数列である。 総和は$n-k$である。 各 i について、$2a_i \geq a_{i+1}$ $a_0 \leq k$(1 は k 個しかない)  逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。</description>
+			<content type="html"><![CDATA[<p>解説と違う方法で解いたので書く。</p>
+<h1 id="要約">要約</h1>
+<ol>
+<li>
+<p>この問題の答えは次を全て満たす有限数列の個数に等しい。</p>
+<ul>
+<li>正整数列である。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$n-k$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。</li>
+</ul>
+</li>
+<li>
+<p>上記の数列の個数は <code>dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)</code>と定義することで計算できる。</p>
+</li>
+<li>
+<p>累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。</p>
+</li>
+</ol>
+<h1 id="くわしく">くわしく</h1>
+<h2 id="操作への言い換え">操作への言い換え</h2>
+<p>条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。</p>
+<ol>
+<li>
+<p>$1$ が $k$ 個あるような多重集合 $M$ を用意する。</p>
+</li>
+<li>
+<p>以下を $n-k$ 回行う。</p>
+<ul>
+<li>$M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)</li>
+</ul>
+</li>
+</ol>
+<p>2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i+1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。</p>
+<h2 id="数列への言い換え-1">数列への言い換え 1</h2>
+<p>上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。</p>
+<p>$$
+a_i:=(1/2^i\text{に分割を行う回数})
+$$</p>
+<p>この数列は次の性質を満たすことがわかる。</p>
+<ol>
+<li>非負整数列である。</li>
+<li>総和は$n-k$である。</li>
+<li>各 i について、$2a_i \geq a_{i+1}$</li>
+<li>$a_0 \leq k$(1 は k 個しかない)</li>
+</ol>
+<p>逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。</p>
+<h2 id="数列への言い換え-2">数列への言い換え 2</h2>
+<p>あとはこの数列を dp で数え上げればいいのだが、このままだと dp で少なくとも総和、先頭、最後尾を覚える必要があり地球が爆発してしまう。よって次のような変換を考える。</p>
+<ul>
+<li>数列の 0 が続く部分を切り落とし、残った部分を反転させる。</li>
+</ul>
+<p>ひっくり返した数列は以下を満たすはずである。</p>
+<ul>
+<li>正整数列である(0 の部分は切り落としたため)。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$n-k$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。</li>
+</ul>
+<p>上を満たす数列が多重集合に対応することはすぐわかる。またこの条件であれば数列の総和と最後尾に関する DP に帰着できそうである。</p>
+<h2 id="dp">DP</h2>
+<p>有限数列に関して条件 c(s,l)を以下全てを満たすことと定義する。</p>
+<ul>
+<li>正整数列である。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$s$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}=l$である。</li>
+</ul>
+<p><code>dp[i][j]=(c(i,j)を満たす数列の総数)</code>と定義して dp をする。<code>dp[i][j]</code>を計算することを考える。和が $i$,最後尾が $j$ なので最後尾を除いた数列は和が $i-j$ である。また $c(i,j)$の 2 の条件から $j$ の前は $1$から$2j$ であればよい。よって以下の遷移が成り立つ。</p>
+<p>$$
+dp[i][j]=\sum_{p=1}^{2j}dp[i-j][p]
+$$</p>
+<p>これは累積和による高速化で$O(1)$で計算できる。DP 全体での計算量は$O(n^2)$であり、これは十分間に合う。</p>
+<p><a href="https://atcoder.jp/contests/arc107/submissions/17775537" target="_blank">ソースコード</a></p>
+]]></content>
+		</item>
 		
 		<item>
 			<title>C&#43;&#43;erが競プロでRustを使おうとして困ったことたち</title>
@@ -17,8 +112,8 @@
 			<guid>https://mijinko17.github.io/hoge/posts/rust_compro/</guid>
 			<description>備忘録がてら。とりあえずうまくいく書き方を載せます。
 ちょこちょこ追加予定。
-入出力 何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。
-現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。
+入出力 何もわからない。自分は AtCoder の rust の提出から適当に拝借している。
+現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。
 proconio
 配列を宣言したい   長さ n、初期値 0 の配列を宣言する
 letn: usize =10;letv: Vec&amp;lt;i32&amp;gt;=vec![0;n];長さの指定はusizeである必要があることに注意する。
@@ -29,14 +124,13 @@ letn: i32 =10;letv=vec![0;nasusize];asで型変換できる。
   n×m、初期値 0 の二次元配列を宣言する。
 letn: usize =10;letm: usize =18;letv=vec![vec![0;m];n];3 次元でも同様。
   (グラフなどを想定して) 空の配列を n 個持った配列を宣言する
-letn: usize =10;// g,h,iどれでもOK letmutg: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;=vec![vec![];n];letmuth=vec![vec![]asVec&amp;lt;i32&amp;gt;;n];letmuti=vec![vec![0;0];n];空の配列は型がわからないので何らかの形での指定が必要。
-    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。
-  BTreeMap</description>
+letn: usize =10;// g,h,iどれでもOK letmutg: Vec&amp;lt;Vec&amp;lt;i32&amp;gt;&amp;gt;=vec![vec![];n];letmuth=vec![vec![]asVec&amp;lt;i32&amp;gt;;n];letmuti=vec![vec![0;0];n];空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。
+letn: usize =10;letmutg=vec![vec![];n];    データ構造系 use std::collections::*;すると楽。以下はこれがある前提。</description>
 			<content type="html"><![CDATA[<p>備忘録がてら。とりあえずうまくいく書き方を載せます。</p>
 <p>ちょこちょこ追加予定。</p>
 <h2 id="入出力">入出力</h2>
-<p>何もわかりません。自分は AtCoder の rust の提出から適当に拝借しています。</p>
-<p>現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれません。</p>
+<p>何もわからない。自分は AtCoder の rust の提出から適当に拝借している。</p>
+<p>現在の AtCoder の judge では proconio なるクレートがインクルードされているのでそれを用いると楽かもしれない。</p>
 <p><a href="https://docs.rs/proconio/0.4.1/proconio/" target="_blank">proconio</a></p>
 <h2 id="配列を宣言したい">配列を宣言したい</h2>
 <ul>
@@ -72,8 +166,10 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&amp;lt;Vec&amp;lt;i32&amp;gt
 </span><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">g</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
 </span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[]</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
 </span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="p">];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
-</span></code></pre></div><p>空の配列は型がわからないので何らかの形での指定が必要。</p>
-</li>
+</span></code></pre></div><p>空の配列の型を指定せずに書くと、文脈から型が推測できないうちはコンパイラから怒られてしまう。型が確定するまで耐えられるなら次で良い。</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="n">n</span>: <span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="o">!</span><span class="p">[</span><span class="n">vec</span><span class="o">!</span><span class="p">[];</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
+</span></code></pre></div></li>
 </ol>
 </li>
 </ul>
@@ -96,6 +192,43 @@ letn: usize =10;// g,h,iどれでもOK letmutg: Vec&amp;lt;Vec&amp;lt;i32&amp;gt
 </span><span class="w"></span><span class="p">}</span><span class="w">
 </span><span class="w"></span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">mp</span><span class="p">[</span><span class="o">&amp;</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
 </span></code></pre></div><p><code>or_insert</code>でキーが存在しない場合に 0 を入れてくれる。</p>
+</li>
+</ol>
+</li>
+<li>
+<p>BinaryHeap</p>
+<ol>
+<li>
+<p>宣言</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span>: <span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></code></pre></div></li>
+<li>
+<p>値を取り出す</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// popで値の取得も同時に行う
+</span><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">// ダイクストラが捗る書き方
+</span><span class="c1">// 5,3の順に取り出される
+</span><span class="c1"></span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="w">  </span><span class="n">println</span><span class="o">!</span><span class="p">(</span><span class="s">&#34;{}&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w">
+</span><span class="w"></span><span class="p">}</span><span class="w">
+</span></code></pre></div><p><code>pop()</code>の返り値が option である(今回は <code>Option&lt;i32&gt;</code>)ことに注意する。<code>Option&lt;T&gt;</code>は値として T だけでなく何らかの失敗を表す<code>None</code>を取ることができる。<code>pop()</code>は heap が空の時に値を取り出せないので、取得できなかったことも表現できる<code>Option&lt;T&gt;</code>を返り値にするのが自然。</p>
+</li>
+<li>
+<p>最小を取り出す版</p>
+<div class="highlight"><pre class="chroma"><code class="language-rs" data-lang="rs"><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">heap</span>: <span class="nc">BinaryHeap</span><span class="o">&lt;</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BinaryHeap</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span><span class="w">
+</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span><span class="w">
+</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="o">&amp;</span><span class="n">std</span>::<span class="n">cmp</span>::<span class="n">Reverse</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">heap</span><span class="p">.</span><span class="n">peek</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span><span class="w"> </span><span class="n">assert_eq</span><span class="o">!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w">
+</span></code></pre></div><p><code>std::cmp::Reverse</code>で向きを逆転させたタイプを得る。
+構造化束縛っぽく書くといい感じに取り出せる。</p>
+<p>BinaryHeap では型に実装された大小関係以外は使えないっぽい。少なくとも独自の比較関数をぶち込んだりはできない。自分で構造体を作って Ord を定義すればまあ。</p>
 </li>
 </ol>
 </li>

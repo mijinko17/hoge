@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mijinko17.github.io/hoge/</loc>
-    <lastmod>2020-05-09T20:05:43+09:00</lastmod>
+    <loc>https://mijinko17.github.io/hoge/posts/arc107-d/</loc>
+    <lastmod>2020-11-01T13:40:09+09:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mijinko17.github.io/hoge/posts/rust_compro/</loc>
-    <lastmod>2020-05-09T20:05:43+09:00</lastmod>
+    <loc>https://mijinko17.github.io/hoge/</loc>
+    <lastmod>2020-11-01T13:40:09+09:00</lastmod>
   </url>
   
   <url>
     <loc>https://mijinko17.github.io/hoge/posts/</loc>
+    <lastmod>2020-11-01T13:40:09+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://mijinko17.github.io/hoge/posts/rust_compro/</loc>
     <lastmod>2020-05-09T20:05:43+09:00</lastmod>
   </url>
   
