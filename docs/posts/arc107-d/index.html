@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="ARC107 D Number of Multisets">
+<meta itemprop="description" content="解説と違う方法で解いたので書く。
+要約   この問題の答えは次を全て満たす有限数列の個数に等しい。
+ 正整数列である。 数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i&#43;1}$である。 数列の総和は$n-k$に等しい。 この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。    上記の数列の個数は dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)と定義することで計算できる。
+  累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。
+  くわしく 操作への言い換え 条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。
+  $1$ が $k$ 個あるような多重集合 $M$ を用意する。
+  以下を $n-k$ 回行う。
+ $M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)    2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i&#43;1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。
+数列への言い換え 1 上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。
+$$ a_i:=(1/2^i\text{に分割を行う回数}) $$
+この数列は次の性質を満たすことがわかる。
+ 非負整数列である。 総和は$n-k$である。 各 i について、$2a_i \geq a_{i&#43;1}$ $a_0 \leq k$(1 は k 個しかない)  逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。">
+<meta itemprop="datePublished" content="2020-11-01T13:40:09&#43;09:00" />
+<meta itemprop="dateModified" content="2020-11-01T13:40:09&#43;09:00" />
+<meta itemprop="wordCount" content="122">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="ARC107 D Number of Multisets" />
+<meta property="og:description" content="解説と違う方法で解いたので書く。
+要約   この問題の答えは次を全て満たす有限数列の個数に等しい。
+ 正整数列である。 数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i&#43;1}$である。 数列の総和は$n-k$に等しい。 この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。    上記の数列の個数は dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)と定義することで計算できる。
+  累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。
+  くわしく 操作への言い換え 条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。
+  $1$ が $k$ 個あるような多重集合 $M$ を用意する。
+  以下を $n-k$ 回行う。
+ $M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)    2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i&#43;1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。
+数列への言い換え 1 上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。
+$$ a_i:=(1/2^i\text{に分割を行う回数}) $$
+この数列は次の性質を満たすことがわかる。
+ 非負整数列である。 総和は$n-k$である。 各 i について、$2a_i \geq a_{i&#43;1}$ $a_0 \leq k$(1 は k 個しかない)  逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mijinko17.github.io/hoge/posts/arc107-d/" />
+<meta property="article:published_time" content="2020-11-01T13:40:09+09:00" />
+<meta property="article:modified_time" content="2020-11-01T13:40:09+09:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARC107 D Number of Multisets"/>
+<meta name="twitter:description" content="解説と違う方法で解いたので書く。
+要約   この問題の答えは次を全て満たす有限数列の個数に等しい。
+ 正整数列である。 数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i&#43;1}$である。 数列の総和は$n-k$に等しい。 この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。    上記の数列の個数は dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)と定義することで計算できる。
+  累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。
+  くわしく 操作への言い換え 条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。
+  $1$ が $k$ 個あるような多重集合 $M$ を用意する。
+  以下を $n-k$ 回行う。
+ $M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)    2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i&#43;1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。
+数列への言い換え 1 上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。
+$$ a_i:=(1/2^i\text{に分割を行う回数}) $$
+この数列は次の性質を満たすことがわかる。
+ 非負整数列である。 総和は$n-k$である。 各 i について、$2a_i \geq a_{i&#43;1}$ $a_0 \leq k$(1 は k 個しかない)  逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/hoge/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/hoge/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/hoge/favicon-16x16.png">
+	<link rel="manifest" href="/hoge/site.webmanifest">
+	<link rel="mask-icon" href="/hoge/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/hoge/favicon.ico">
+
+	<title>ARC107 D Number of Multisets</title>
+	<link rel="stylesheet" href="https://mijinko17.github.io/hoge/css/style.min.657bcb7af31123e4156b1a3d2ff60a636717e54ead74f882136b5114cf72b55e.css" integrity="sha256-ZXvLevMRI+QVaxo9L/YKY2cX5U6tdPiCE2tRFM9ytV4=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp faster">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://mijinko17.github.io/hoge/">biotope monologue</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://mijinko17.github.io/hoge/posts/">Posts</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/mijinko_cpp" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://github.com/mijinko17" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://mijinko17.github.io/hoge/posts/">Posts</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Nov 1, 2020</span></div>
+				<h1>ARC107 D Number of Multisets</h1>
+			</header>
+			<div class="content">
+				<p>解説と違う方法で解いたので書く。</p>
+<h1 id="要約">要約<a href="#要約" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<ol>
+<li>
+<p>この問題の答えは次を全て満たす有限数列の個数に等しい。</p>
+<ul>
+<li>正整数列である。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$n-k$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。</li>
+</ul>
+</li>
+<li>
+<p>上記の数列の個数は <code>dp[i][j]=(上記の数列の、数列の総和が i, 末項が j 版の個数)</code>と定義することで計算できる。</p>
+</li>
+<li>
+<p>累積和による高速化を行うことでこの DP を$O(n^2)$で計算できる。</p>
+</li>
+</ol>
+<h1 id="くわしく">くわしく<a href="#くわしく" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h1>
+<h2 id="操作への言い換え">操作への言い換え<a href="#操作への言い換え" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>条件を満たす多重集合を操作に言い換えて、操作の個数を計算したい。条件を満たす集合は以下のような操作で作られていると考えることができる。</p>
+<ol>
+<li>
+<p>$1$ が $k$ 個あるような多重集合 $M$ を用意する。</p>
+</li>
+<li>
+<p>以下を $n-k$ 回行う。</p>
+<ul>
+<li>$M$の元$x$を一つ選んで削除し、$M$に$x/2$を 2 つ挿入する。(以下分割すると呼ぶ。)</li>
+</ul>
+</li>
+</ol>
+<p>2 つの操作について、分割する順番が異なっていても各指数について同じ回数の分割を行っていれば(各$i$について、$\frac{1}{2^i}$を$\frac{1}{2^{i+1}}$2 つに分割する回数が同じであれば)同じ多重集合になる。よって各指数での分割回数が等しい操作を同じものだと思えば、多重集合に対してただ一つの操作が対応することになる。</p>
+<h2 id="数列への言い換え-1">数列への言い換え 1<a href="#数列への言い換え-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>上で多重集合を各指数ごとの分割回数に言い換えた。これは数列に変換することができる。多重集合$M$に対して次で定義される無限数列$a$を対応させる。</p>
+<p>$$
+a_i:=(1/2^i\text{に分割を行う回数})
+$$</p>
+<p>この数列は次の性質を満たすことがわかる。</p>
+<ol>
+<li>非負整数列である。</li>
+<li>総和は$n-k$である。</li>
+<li>各 i について、$2a_i \geq a_{i+1}$</li>
+<li>$a_0 \leq k$(1 は k 個しかない)</li>
+</ol>
+<p>逆に上を全て満たす数列は全て操作に対応し、すなわち多重集合に対応することもわかる。ゆえに上記を満たす数列を数え上げれば問題に答えられたことになる。</p>
+<h2 id="数列への言い換え-2">数列への言い換え 2<a href="#数列への言い換え-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>あとはこの数列を dp で数え上げればいいのだが、このままだと dp で少なくとも総和、先頭、最後尾を覚える必要があり地球が爆発してしまう。よって次のような変換を考える。</p>
+<ul>
+<li>数列の 0 が続く部分を切り落とし、残った部分を反転させる。</li>
+</ul>
+<p>ひっくり返した数列は以下を満たすはずである。</p>
+<ul>
+<li>正整数列である(0 の部分は切り落としたため)。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$n-k$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}\leq k$である。</li>
+</ul>
+<p>上を満たす数列が多重集合に対応することはすぐわかる。またこの条件であれば数列の総和と最後尾に関する DP に帰着できそうである。</p>
+<h2 id="dp">DP<a href="#dp" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h2>
+<p>有限数列に関して条件 c(s,l)を以下全てを満たすことと定義する。</p>
+<ul>
+<li>正整数列である。</li>
+<li>数列を $a$ とすると、任意の $i$ について$a_i \leq 2a_{i+1}$である。</li>
+<li>数列の総和は$s$に等しい。</li>
+<li>この数列の末項$a_{last}$が存在するとき(数列が空でないとき)、$a_{last}=l$である。</li>
+</ul>
+<p><code>dp[i][j]=(c(i,j)を満たす数列の総数)</code>と定義して dp をする。<code>dp[i][j]</code>を計算することを考える。和が $i$,最後尾が $j$ なので最後尾を除いた数列は和が $i-j$ である。また $c(i,j)$の 2 の条件から $j$ の前は $1$から$2j$ であればよい。よって以下の遷移が成り立つ。</p>
+<p>$$
+dp[i][j]=\sum_{p=1}^{2j}dp[i-j][p]
+$$</p>
+<p>これは累積和による高速化で$O(1)$で計算できる。DP 全体での計算量は$O(n^2)$であり、これは十分間に合う。</p>
+<p><a href="https://atcoder.jp/contests/arc107/submissions/17775537" target="_blank">ソースコード</a></p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-11-01 13:40 &#43;0900</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="prev-post" href="https://mijinko17.github.io/hoge/posts/rust_compro/">
+				<span class="post-nav-label">&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span>C&#43;&#43;erが競プロでRustを使おうとして困ったことたち</span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+	<script src="https://mijinko17.github.io/hoge/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
